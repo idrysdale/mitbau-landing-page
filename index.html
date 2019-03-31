@@ -9,9 +9,11 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" href="styles/site.css">
 </head>
-<body onload="switchBackaground()">
-  <div id="wipe"></div>
-  <div id="darken"></div>
+<body>
+  <div id="images">
+    <div id="top" class="visible backgroundImage"></div>
+    <div id="bottom" class="backgroundImage"></div>
+  </div>
 
   <div class="content">
     <div class="inner">
@@ -21,7 +23,7 @@
           A place to make, together.
         </p>
         <p>
-          A shared workshop facility providing space, pro-grade machinery, and a supportive
+          A shared workshop facility providing space, pro&#8209;grade machinery, and a supportive
           environment to start-up makers and bench work enthusiasts.
         </p>
         <p>
@@ -43,33 +45,38 @@
 
   <script>
     var imageIndex = 0;
-
     var images = [
         'images/hand-tools.jpg',
         'images/hangar-roof.jpg',
         'images/workspace.jpg'
     ];
+    nextImageIndex = (imageIndex + 1) % images.length;
 
-    window.switchBackaground = function() {
-      imageIndex = (imageIndex + 1) % images.length;
-      document.body.style.backgroundImage = "url(" + images[imageIndex] + ")";
-      window.setTimeout(switchBackaground, 4000);
+    topImage = document.getElementById("top")
+    bottomImage = document.getElementById("bottom")
+
+    topImage.style.backgroundImage = "url(" + images[imageIndex] + ")";
+
+    window.cycleImages = function() {
+      if (topImage.classList.contains("visible")) {
+        nextImageIndex = (imageIndex + 1) % images.length;
+        bottomImage.style.backgroundImage = "url(" + images[nextImageIndex] + ")";
+        topImage.classList.add("fade-out")
+        topImage.classList.remove("visible")
+        setTimeout(function(){
+          topImage.style.backgroundImage = "url(" + images[nextImageIndex] + ")";
+          topImage.style.backgroundImage = "url(" + images[nextImageIndex] + ")";
+          topImage.classList.add("visible")
+          topImage.classList.remove("fade-out")
+        }, 1000);
+        imageIndex ++;
+        window.setTimeout(cycleImages, 3000);
+      }
     }
 
-    window.fadeWipeIn = function() {
-      wipe = document.getElementById("wipe");
-      wipe.style.opacity = 1;
-      window.setTimeout(fadeWipeOut, 150);
-    }
-
-    window.fadeWipeOut = function() {
-      wipe = document.getElementById("wipe");
-      wipe.style.opacity = 0;
-      window.setTimeout(fadeWipeIn, 3850);
-    }
-
-    document.body.style.backgroundImage = "url(" + images[imageIndex] + ")";
-    window.setTimeout(fadeWipeIn, 3850);
+    document.addEventListener("DOMContentLoaded", function(event) {
+      window.setTimeout(cycleImages, 3000);
+    });
   </script>
 </body>
 </html>
