@@ -46,6 +46,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@media screen and (min-width: 33.75rem) {
+  .form {
+    width: 28.125rem; } }
 .form__label {
   font-size: 1.5rem;
   line-height: 1.875rem;
@@ -62,7 +65,8 @@ table {
   outline: 1px solid #000000;
   padding: 0.46875rem 0.9375rem;
   width: 100%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5); }
 .form__button {
   -webkit-appearance: none;
   font-size: 1rem;
@@ -90,7 +94,7 @@ body {
   background-color: #000000; }
 
 #images {
-  opacity: 0.4;
+  opacity: 1;
   position: relative;
   z-index: -1; }
   #images .backgroundImage {
