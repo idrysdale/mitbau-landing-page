@@ -123,12 +123,12 @@ body {
 
 .content {
   z-index: 2; }
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 64em) {
     .content {
-      width: 40em; } }
+      width: 64em; } }
   .content .inner {
     z-index: 4;
-    margin: 1.875rem; }
+    margin: 2.8125rem; }
 
 h1, h2, p, label {
   color: #ffffff;
@@ -143,11 +143,11 @@ h1 {
   font-weight: bold; }
 
 h2 {
-  font-size: 2rem;
-  line-height: 3.75rem;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
   margin-top: 0rem;
-  margin-bottom: 0rem;
-  font-weight: bold; }
+  margin-bottom: 1.875rem;
+  font-weight: 800; }
 
 p {
   font-size: 1.5rem;
@@ -156,8 +156,8 @@ p {
   margin-bottom: 1.875rem; }
 
 .logo {
-  height: 9.375rem;
-  margin-bottom: 1.875rem;
+  height: 15rem;
+  margin-bottom: 3.75rem;
   -webkit-filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.5));
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.5)); }
 

@@ -84,12 +84,12 @@ body {
 
 .content {
     z-index: 2;
-    @include breakpoint('break-1') {
-        width: #{map-get($breakpoints, break-1)};
+    @include breakpoint('break-3') {
+        width: #{map-get($breakpoints, break-3)};
     }
     .inner {
         z-index: 4;
-        margin: $line-height-base;
+        margin: #{$line-height-base * 1.5};
     }
 }
 
@@ -105,8 +105,8 @@ h1 {
 }
 
 h2 {
-    @include vertical-rhythm(2rem, 0, 0);
-    font-weight: bold;
+    @include vertical-rhythm(1.5rem, 1, 0);
+    font-weight: 800;
 }
 
 p {
@@ -114,8 +114,8 @@ p {
 }
 
 .logo {
-  height: #{5 * $line-height-base};
-  margin-bottom: $line-height-base;
+  height: #{8 * $line-height-base};
+  margin-bottom: #{2 * $line-height-base};
   -webkit-filter: drop-shadow(0 0 7px rgba(0,0,0,0.5));
   filter: drop-shadow(0 0 7px rgba(0,0,0,0.5));
 }
